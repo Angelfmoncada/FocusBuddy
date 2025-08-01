@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-800;
+  }
+  
+  body {
+    @apply bg-slate-900 text-white font-sans antialiased;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+  }
+  
+  html {
+    /* Dark mode is handled via class toggle */
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-slate-900/60 backdrop-blur-lg border border-slate-700/50;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-500 via-indigo-500 to-fuchsia-500 bg-clip-text text-transparent;
+  }
+  
+  .gradient-border {
+    @apply bg-gradient-to-r from-blue-500 via-indigo-500 to-fuchsia-500 p-[1px] rounded-lg;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-500 via-indigo-500 to-fuchsia-500 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply glass text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-slate-800/60 hover:scale-105 active:scale-95;
+  }
+  
+  .card {
+    @apply glass rounded-xl p-6 shadow-xl;
+  }
+  
+  .progress-ring {
+    @apply transition-all duration-300 ease-out;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+  }
+}
