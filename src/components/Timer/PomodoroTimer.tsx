@@ -23,7 +23,7 @@ export function PomodoroTimer() {
   } = useFocusStore();
   
   const progress = useTimerProgress();
-  const intervalRef = useRef<number | null>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [isVibrating, setIsVibrating] = useState(false);
   
   // Timer tick effect
